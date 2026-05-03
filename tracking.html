@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SITTA | Tracking</title>
+
+    <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+</head>
+
+<body>
+    <header class="main-header">
+        <div class="menu-title">
+            <a href="dashboard.html" class="title-link">SITTA</a>
+        </div>
+        <nav class="main-nav">
+            <a href="stok.html" class="nav-link"><i class="fa-solid fa-book"></i> Informasi Bahan Ajar</a>
+            <a href="tracking.html" class="nav-link"><i class="fa-solid fa-truck-fast"></i> Tracking Pengiriman</a>
+            <div class="submenu">
+                <button class="nav-link submenu-toggle"><i class="fa-solid fa-chart-column"></i> Laporan<i class="fa-solid fa-caret-down"></i></button>
+                <div class="submenu-content">
+                    <a href="#" class="submenu-item">Monitoring Progress DO Bahan Ajar</a>
+                    <a href="#" class="submenu-item">Rekap Bahan Ajar</a>
+                </div>
+            </div>
+            <a href="#" class="nav-link"><i class="fa-solid fa-file-contract"></i> Histori Transaksi Bahan Ajar</a>
+            <a href="#" class="nav-link" id="btnLogout"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
+        </nav>
+    </header>
+
+    <div class="title-card">
+        <h2>Tracking Pengiriman</h2>
+        <div class="subtitle">Sistem Informasi Tiras dan Transaksi Bahan Ajar</div>
+    </div>
+
+    <div class="main-card">
+        <div class="tracking-container">
+
+            <div class="tracking-title">
+                <h3>Pantau Pengiriman Bahan Ajar</h3>
+                <p>Masukkan Nomor Delivery Order. Contoh: 2026012345.</p>
+            </div>
+
+            <div class="tracking-input">
+                <input type="text" id="trackingNumber" placeholder="Nomor Delivery Order">
+                <button class="btn btn-primary" id="btnTracking"><i class="fa-solid fa-magnifying-glass"></i> Lacak</button>
+            </div>
+            <div class="tracking-result">
+                <div class="tracking-card">
+                    <div class="tracking-card-header">
+                        <h2>Detail Pengiriman</h2>
+                        <span class="status-badge" id="ui-status"></span>
+                    </div>
+
+                    <div class="info-grid">
+                        <div class="info-item">
+                            <span class="info-label">No. DO</span>
+                            <span class="info-value" id="ui-nomorDO"></span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Penerima</span>
+                            <span class="info-value" id="ui-nama"></span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Ekspedisi</span>
+                            <span class="info-value" id="ui-ekspedisi"></span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Tanggal Kirim</span>
+                            <span class="info-value" id="ui-tanggal"></span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Paket</span>
+                            <span class="info-value" id="ui-paket"></span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Total</span>
+                            <span class="info-value" id="ui-total"></span>
+                        </div>
+                    </div>
+
+                    <div class="timeline-container">
+                        <h3 class="timeline-title">Riwayat Perjalanan</h3>
+                        <ul class="timeline" id="ui-timeline"></ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Tracking -->
+    <div class="modal" id="modalTracking">
+        <div class="modal-content modal-info">
+            <div class="modal-header">
+                <h3>Info Tracking</h3>
+                <span class="close-btn" data-target="modalTracking">&times;</span>
+            </div>
+            <div class="modal-body">
+                <p id="trackingMessage"></p>
+                <button class="btn btn-primary btn-small close-modal-btn" data-target="modalTracking">Tutup</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Logout -->
+    <div class="modal" id="modalLogout">
+        <div class="modal-content modal-danger">
+            <div class="modal-header">
+                <h3>Logout</h3>
+                <span class="close-btn" data-target="modalLogout">&times;</span>
+            </div>
+            <div class="modal-body">
+                <p>Apakah Anda yakin ingin keluar dari aplikasi?</p>
+                <form action="#" id="logoutForm">
+                    <div class="button-group">
+                        <button type="button" class="btn btn-reset btn-small" id="btnBatalLogout">Batal</button>
+                        <button type="submit" class="btn btn-primary btn-small">Ya</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="js/global.js"></script>
+    <script type="module" src="js/headerNav.js"></script>
+    <script type="module" src="js/trackingPage.js"></script>
+</body>
+
+</html>

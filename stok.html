@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SITTA | Informasi Bahan Ajar</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+</head>
+
+<body>
+    <header class="main-header">
+        <div class="menu-title">
+            <a href="dashboard.html" class="title-link">SITTA</a>
+        </div>
+        <nav class="main-nav">
+            <a href="stok.html" class="nav-link"><i class="fa-solid fa-book"></i> Informasi Bahan Ajar</a>
+            <a href="tracking.html" class="nav-link"><i class="fa-solid fa-truck-fast"></i> Tracking Pengiriman</a>
+            <div class="submenu">
+                <button class="nav-link submenu-toggle"><i class="fa-solid fa-chart-column"></i> Laporan<i class="fa-solid fa-caret-down"></i></button>
+                <div class="submenu-content">
+                    <a href="#" class="submenu-item">Monitoring Progress DO Bahan Ajar</a>
+                    <a href="#" class="submenu-item">Rekap Bahan Ajar</a>
+                </div>
+            </div>
+            <a href="#" class="nav-link"><i class="fa-solid fa-file-contract"></i> Histori Transaksi Bahan Ajar</a>
+            <a href="#" class="nav-link" id="btnLogout"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
+        </nav>
+    </header>
+
+    <div class="title-card">
+        <h2>Informasi Bahan Ajar</h2>
+        <div class="subtitle">Sistem Informasi Tiras dan Transaksi Bahan Ajar</div>
+    </div>
+
+    <div class="main-card">
+        <div class="stok-container">
+            <div class="table-container">
+
+                <div class="table-title">
+                    <h2>Data Stok Bahan Ajar</h2>
+                    <button class="btn btn-primary" id="tambahBahanAjar"><i class="fa-solid fa-plus"></i> Bahan
+                        Ajar</button>
+                </div>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Kode</th>
+                            <th>Nama</th>
+                            <th>Jenis</th>
+                            <th>Edisi</th>
+                            <th>Kode Lokasi</th>
+                            <th class="th-center">Stok</th>
+                            <th class="th-center">Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody id="table-body">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Detail Bahan Ajar -->
+    <div class="modal modal-large" id="modalTambahBahanAjar">
+        <div class="modal-content modal-info modal-form">
+            <div class="modal-header">
+                <h3>Tambah Bahan Ajar</h3>
+                <span class="close-btn" data-target="modalTambahBahanAjar">&times;</span>
+            </div>
+            <div class="modal-body">
+                <form action="#" id="tambahBahanAjarForm">
+                    <div class="scrollable-input">
+                        <div class="input-group">
+                            <label for="kodeBarang">Kode Bahan Ajar</label>
+                            <input type="text" name="kodeBarang" placeholder="Masukkan kode bahan ajar" required>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="namaBarang">Nama Bahan Ajar</label>
+                            <input type="text" name="namaBarang" placeholder="Masukkan nama bahan ajar" required>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="cover">Cover</label>
+                            <input type="file" name="cover" id="cover" accept="image/*" required>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="jenisBarang">Jenis</label>
+                            <select name="jenisBarang">
+                                <option value="BMP">BMP</option>
+                                <option value="NON-BMP">NON-BMP</option>
+                            </select>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="edisi">Edisi</label>
+                            <input type="number" name="edisi" placeholder="Masukkan edisi bahan ajar" required>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="kodeLokasi">Kode Lokasi</label>
+                            <input type="text" name="kodeLokasi" placeholder="Masukkan kode lokasi bahan ajar" required>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="stok">Stok</label>
+                            <input type="number" name="stok" placeholder="Masukkan stok bahan ajar" required>
+                        </div>
+                    </div>
+
+                    <div class="button-group">
+                        <button type="button" class="btn btn-reset btn-small" id="btnBatalTambahBahanAjar">Batal</button>
+                        <button type="submit" class="btn btn-primary btn-small">Simpan</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Detail Bahan Ajar -->
+    <div class="modal modal-large" id="modalDetailBahanAjar">
+        <div class="modal-content modal-info">
+            <div class="modal-header">
+                <h3>Detail</h3>
+                <span class="close-btn" data-target="modalDetailBahanAjar">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="detail-stok-container">
+                    <div class="img-stok" id="imgStok">
+                        <img src="img/kepemimpinan.jpg" alt="Bahan Ajar">
+                    </div>
+
+                    <div class="data-stok">
+                        <div class="stok-info">
+                            <div class="stok-label">Kode</div>
+                            <div class="stok-label">Nama</div>
+                            <div class="stok-label">Jenis</div>
+                            <div class="stok-label">Edisi</div>
+                            <div class="stok-label">Kode Lokasi</div>
+                            <div class="stok-label">Stok</div>
+                        </div>
+                        <div class="stok-info" id="stokInfoValue">
+                        </div>
+                    </div>
+                </div>
+                <button class="btn btn-primary btn-small close-modal-btn"
+                    data-target="modalDetailBahanAjar">Tutup</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Logout -->
+    <div class="modal" id="modalLogout">
+        <div class="modal-content modal-danger">
+            <div class="modal-header">
+                <h3>Logout</h3>
+                <span class="close-btn" data-target="modalLogout">&times;</span>
+            </div>
+            <div class="modal-body">
+                <p>Apakah Anda yakin ingin keluar dari aplikasi?</p>
+                <form action="#" id="logoutForm">
+                    <div class="button-group">
+                        <button type="button" class="btn btn-reset btn-small" id="btnBatalLogout">Batal</button>
+                        <button type="submit" class="btn btn-primary btn-small">Ya</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="js/global.js"></script>
+    <script type="module" src="js/headerNav.js"></script>
+    <script type="module" src="js/stokPage.js"></script>
+</body>
+
+</html>
