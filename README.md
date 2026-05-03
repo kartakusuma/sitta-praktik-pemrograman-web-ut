@@ -5,3 +5,6 @@ Tech stack:
 - CSS
 - JavaScript
 - Font Awesome (icon)
+
+Dokumentasi:
+https://youtu.be/IQtAYPgIpdI
